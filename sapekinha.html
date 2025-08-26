@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapeca Festas e Eventos - Aluguel de Brinquedos Infláveis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --dark: #1A535C;
+            --light: #F7FFF7;
+            --vibrant: #FF6B6B;
+            --vibrant-secondary: #6A67CE;
+            --gradient: linear-gradient(135deg, var(--vibrant), var(--vibrant-secondary));
+            --gradient-light: linear-gradient(135deg, #ff8e8e, #7d7ae0);
+            --bg-primary: #f8f9ff;
+            --bg-secondary: #ffffff;
+            --text-primary: #333;
+            --text-secondary: #555;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --shadow: rgba(106, 103, 206, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .dark-mode {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-primary: #f0f0f0;
+            --text-secondary: #cccccc;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --header-bg: rgba(30, 30, 30, 0.95);
+            --shadow: rgba(0, 0, 0, 0.25);
+            --dark: #88d3dd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 200, 124, 0.1) 0%, transparent 90%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Modernizado */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 25px var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 12px 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+        
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--vibrant);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 10px;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .theme-toggle {
+            background: var(--gradient);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 20px;
+            box-shadow: 0 5px 15px rgba(106, 103, 206, 0.3);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        .theme-toggle i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section Modernizada */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            padding: 40px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px var(--shadow);
+            animation: fadeInUp 1s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero h2 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 900;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .hero h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            max-width: 550px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 42px;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(106, 103, 206, 0.4);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(106, 103, 206, 0.5);
+        }
+        
+        .btn i {
+            font-size: 1.4rem;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-bg-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-brinquedo {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.2));
+            max-width: 80%;
+        }
+        
+        .floating-brinquedo:nth-child(1) {
+            top: 15%;
+            right: 10%;
+            animation-delay: 0s;
+            max-width: 300px;
+        }
+        
+        .floating-brinquedo:nth-child(2) {
+            top: 55%;
+            right: 25%;
+            animation-delay: 1s;
+            max-width: 250px;
+            animation-duration: 7s;
+        }
+        
+        .floating-brinquedo:nth-child(3) {
+            top: 30%;
+            right: 45%;
+            animation-delay: 2s;
+            max-width: 200px;
+            animation-duration: 8s;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        /* Services Section Modernizada */
+        .services {
+            padding: 120px 0 80px;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+        
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 25px auto 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(106, 103, 206, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px var(--shadow);
+        }
+        
+        .service-img {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.12);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(106, 103, 206, 0.4);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-content h3 i {
+            color: var(--vibrant);
+        }
+        
+        .service-content p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--vibrant);
+            display: block;
+            margin-top: 15px;
+        }
+
+        .whatsapp-card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-card-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .service-bg-element {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(106, 103, 206, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+            top: 10%;
+            right: -10%;
+            z-index: 1;
+        }
+        
+        /* About Section Modernizada */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text h2 {
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        
+        .about-text h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .feature {
+            display: flex;
+            padding: 25px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-light);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .feature-text p {
+            color: var(--text-secondary);
+        }
+        
+        .about-img {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px var(--shadow);
+            transform: rotate(-3deg);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .about-img:hover {
+            transform: rotate(0deg);
+        }
+        
+        .about-img img {
+            width: 100%;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-bg-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(106, 103, 206, 0.1) 100%);
+            bottom: -50px;
+            left: -50px;
+            z-index: 1;
+        }
+        
+        /* Testimonials Modernizado com Swiper */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+            position: relative;
+        }
+        
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px var(--shadow);
+            margin: 20px;
+            position: relative;
+            border: 1px solid rgba(106, 103, 206, 0.1);
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--vibrant-secondary);
+            opacity: 0.15;
+            font-family: serif;
+            font-weight: 900;
+        }
+        
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--vibrant-secondary);
+            box-shadow: 0 5px 15px rgba(106, 103, 206, 0.3);
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-info h4 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+        
+        .client-info p {
+            color: var(--vibrant);
+            font-weight: 600;
+        }
+        
+        .testimonials-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('https://i.imgur.com/qJxLQfS.png') no-repeat center center/contain;
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gradient) !important;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--vibrant) !important;
+        }
+        
+        /* Contact Section Modernizada */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--vibrant-secondary), var(--vibrant));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            color: white;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 35px;
+            line-height: 1.2;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .contact-icon i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .contact-text p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-form h3 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e0e0ff;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-control:focus {
+            border-color: var(--vibrant-secondary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(106, 103, 206, 0.2);
+            background: var(--bg-secondary);
+        }
+        
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .contact-bg-element {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            top: -100px;
+            right: -100px;
+            z-index: 1;
+        }
+
+        /* WhatsApp Quick Actions */
+        .whatsapp-actions {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 998;
+        }
+
+        .whatsapp-action-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+            transform: translateX(100px);
+            opacity: 0;
+        }
+
+        .whatsapp-action-btn:nth-child(1) {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            transition-delay: 0.1s;
+        }
+
+        .whatsapp-action-btn:nth-child(2) {
+            background: linear-gradient(135deg, #5856d6, #2c2b80);
+            transition-delay: 0.2s;
+        }
+
+        .whatsapp-action-btn:nth-child(3) {
+            background: linear-gradient(135deg, #ff9500, #ff3b30);
+            transition-delay: 0.3s;
+        }
+
+        .whatsapp-actions.active .whatsapp-action-btn {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .whatsapp-action-btn:hover {
+            transform: scale(1.1) translateX(0) !important;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            animation: none;
+        }
+
+        .whatsapp-btn.active {
+            transform: rotate(45deg);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #333;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Footer Modernizado */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.7rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--vibrant);
+            border-radius: 10px;
+        }
+        
+        .footer-column p {
+            margin-bottom: 25px;
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .footer-links li {
+            margin-bottom: 16px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a i {
+            color: var(--vibrant);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 25px;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.3rem;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/5XkKq3d.png') no-repeat center center/cover;
+            opacity: 0.03;
+        }
+
+        /* Modal de Confirmação */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: #25D366;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .loader.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loader:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid var(--vibrant);
+            border-color: var(--vibrant) transparent var(--vibrant) transparent;
+            animation: loader 1.2s linear infinite;
+        }
+
+        @keyframes loader {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 3.2rem;
+            }
+            
+            .hero-bg {
+                width: 50%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                height: auto;
+                padding: 120px 0;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero p {
+                margin: 0 auto 35px;
+            }
+            
+            .hero-bg {
+                position: relative;
+                width: 100%;
+                height: 500px;
+                margin-top: 50px;
+            }
+            
+            .floating-brinquedo {
+                position: relative;
+                display: block;
+                margin: 0 auto 30px;
+                top: auto !important;
+                right: auto !important;
+                left: auto !important;
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+
+            .whatsapp-actions {
+                bottom: 100px;
+                right: 20px;
+            }
+
+            .whatsapp-action-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .whatsapp-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                padding-top: 100px;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 0 40px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-toggle {
+                width: 45px;
+                height: 45px;
+            }
+
+            .whatsapp-actions {
+                bottom: 90px;
+                right: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 16px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .testimonial-card {
+                padding: 30px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+
+            .whatsapp-actions {
+                display: none;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>Redirecionando para o WhatsApp</h3>
+            <p>Em instantes você será direcionado para conversar conosco no WhatsApp e finalizar sua reserva!</p>
+            <div class="modal-buttons">
+                <a href="#" class="btn" id="confirmWhatsApp"><i class="fab fa-whatsapp"></i> Ok, Entendi</a>
+                <button class="btn" style="background: #888;" id="cancelRedirect"><i class="fas fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Quick Actions -->
+    <div class="whatsapp-actions" id="whatsappActions">
+        <div class="whatsapp-action-btn" data-message="Olá, gostaria de saber mais sobre o Pula Pula">
+            <i class="fas fa-castle"></i>
+        </div>
+        <div class="whatsapp-action-btn" data-message="Olá, gostaria de fazer um orçamento para evento">
+            <i class="fas fa-calendar"></i>
+        </div>
+        <div class="whatsapp-action-btn" data-message="Olá, preciso de ajuda para escolher brinquedos">
+            <i class="fas fa-question"></i>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Fale conosco no WhatsApp</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="logo">
+                <i class="fas fa-child logo-icon"></i>
+                <h1>Sapeca</h1>
+            </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Brinquedos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>Diversão garantida <span>para sua festa!</span></h2>
+                <p>Alugue os melhores brinquedos infláveis para festas infantis and eventos. Pula-pula, touro mecânico, piscina de bolinhas e muito mais!</p>
+                <a href="#contact" class="btn" id="heroCta"><i class="fas fa-calendar-check"></i> Reservar Agora</a>
+            </div>
+        </div>
+        
+        <div class="hero-bg">
+            <div class="hero-bg-content">
+                <img src="https://static.wixstatic.com/media/04d9a2_6d0396ea29f14601a8b994a2a861b675~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20210120-WA0005.jpg" alt="Pula Pula" class="floating-brinquedo">
+                <img src="https://bigbrinquedos.com.br/wp-content/uploads/2024/08/04.jpg" alt="Touro Mecânico" class="floating-brinquedo">
+                <img src="https://static.wixstatic.com/media/04d9a2_32ffbbc8342040199e7005121e941e58~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20210120-WA0010.jpg" alt="Piscina de Bolinhas" class="floating-brinquedo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Brinquedos</h2>
+                <p>Oferecemos uma grande variedade de brinquedos infláveis para todas as idades e tipos de eventos. Tudo com segurança and qualidade!</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://static.wixstatic.com/media/04d9a2_6d0396ea29f14601a8b994a2a861b675~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20210120-WA0005.jpg" alt="Pula Pula">
+                        <div class="service-badge">Mais Popular</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-castle"></i> Pula Pula</h3>
+                        <p>Castelos infláveis com diversos temas para crianças de todas as idades. Modelos temáticos de super-heróis, princesas e muito mais.</p>
+                        <span class="price">A partir de R$ 180/dia</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Pula Pula">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://bigbrinquedos.com.br/wp-content/uploads/2024/08/04.jpg" alt="Touro Mecânico">
+                        <div class="service-badge">Populares</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-bullhorn"></i> Touro Mecânico</h3>
+                        <p>Diversão garantida para adolescentes e adultos em festas e eventos. Equipamento profissional com controle de velocidade.</p>
+                        <span class="price">A partir de R$ 350/dia</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Touro Mecânico">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://static.wixstatic.com/media/04d9a2_32ffbbc8342040199e7005121e941e58~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20210120-WA0010.jpg" alt="Piscina de Bolinhas">
+                        <div class="service-badge">Para Crianças</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-swimming-pool"></i> Piscina de Bolinhas</h3>
+                        <p>Diversão segura para os pequenos com piscinas de diversos tamanhos e mais de 10 mil bolinhas coloridas.</p>
+                        <span class="price">A partir de R$ 150/dia</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Piscina de Bolinhas">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://www.superfestacampinas.com.br/wp-content/uploads/2017/08/aluguel-de-toboga-vermelho.jpg" alt="Escorregador Inflável">
+                        <div class="service-badge">Novidade</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-sliders-h"></i> Escorregador Inflável</h3>
+                        <p>Escorregadores gigantes para muita diversão em festas infantis. Modelos com até 8m de altura and piscina integrada.</p>
+                        <span class="price">A partir de R$ 220/dia</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Escorregador Inflável">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://static.wixstatic.com/media/04d9a2_6d0396ea29f14601a8b994a2a861b675~mv2.jpg/v1/fill/w_612,h_452,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG-20210120-WA0005.jpg" alt="Cama Elástica">
+                        <div class="service-badge">Clássico</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-bounce"></i> Cama Elástica</h3>
+                        <p>Diversão segura com redes de proteção e materiais de alta qualidade. Disponível em diversos tamanhos.</p>
+                        <span class="price">A partir de R$ 180/dia</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Cama Elástica">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://blog.lebiscuit.com.br/wp-content/uploads/2021/02/pintura-facial-infantil.png" alt="Pintura Facial">
+                        <div class="service-badge">Serviço Extra</div>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-paint-brush"></i> Pintura Facial</h3>
+                        <p>Artistas profissionais transformando crianças em seus personagens favoritos. Mais de 50 opções de desenhos.</p>
+                        <span class="price">A partir de R$ 200/4h</span>
+                        <a href="#" class="whatsapp-card-btn" data-service="Pintura Facial">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-bg-element"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a <span>Sapeca Festas</span></h2>
+                    <p>Há mais de 10 anos trazendo alegria e diversão para festas infantis e eventos em todo o Brasil. Nossa missão é transformar seu evento em uma experiência inesquecível.</p>
+                    <p>Todos os nossos brinquedos passam por rigorosos controles de qualidade e são higienizados após cada uso, garantindo segurança e tranquilidade para você e seus convidados.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Segurança Garantida</h4>
+                                <p>Brinquedos certificados e com manutenção constante</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Entrega e Montagem</h4>
+                                <p>Entregamos, montamos e desmontamos em todo o país</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Equipe Qualificada</h4>
+                                <p>Profissionais treinados para garantir a melhor experiência</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Qualidade Premium</h4>
+                                <p>Brinquedos de última geração e materiais de alta qualidade</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               <!-- <div class="about-img">
+                    <img src="https://i.imgur.com/7sGdWbX.jpg" alt="Equipe Sapeca">
+                </div> -->
+            </div>
+            
+            <div class="about-bg-element"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Dizem Nossos Clientes</h2>
+                <p>Veja depoimentos de quem já contratou nossos serviços</p>
+            </div>
+            
+            <div class="swiper testimonials-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Contratei a Sapeca para o aniversário do meu filho e foi incrível! O pula-pula era enorme e as crianças amaram. A equipe foi super atenciosa e profissional. Recomendo muito!"</p>
+                            <div class="client">
+                                <div class="client-img">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana Silva">
+                                </div>
+                                <div class="client-info">
+                                    <h4>Ana Silva</h4>
+                                    <p>Aniversário Infantil</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Fizemos uma festa corporativa e o touro mecânico foi o grande sucesso! Todos os funcionários adoraram e a equipe da Sapeca foi muito profissional. Com certeza contrataremos novamente."</p>
+                            <div class="client">
+                                <div class="client-img">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Oliveira">
+                                </div>
+                                <div class="client-info">
+                                    <h4>Carlos Oliveira</h4>
+                                    <p>Evento Corporativo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"A piscina de bolinhas foi a sensação da festa da minha filha. As crianças passaram horas se divertindo e os pais puderam relaxar sabendo que era totalmente seguro. Obrigada Sapeca!"</p>
+                            <div class="client">
+                                <div class="client-img">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mariana Santos">
+                                </div>
+                                <div class="client-info">
+                                    <h4>Mariana Santos</h4>
+                                    <p>Festa Infantil</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <div class="testimonials-bg"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Entre em Contato</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Endereço</h3>
+                        <p>Av. das Festas, 123 - Centro, São Paulo/SP</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Telefone</h3>
+                        <p>(11) 94310-4933</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <p>contato@sapecafestas.com.br</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Horário de Atendimento</h3>
+                        <p>Segunda a Sábado: 8h às 20h</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Solicite um Orçamento</h3>
+                <form id="form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event">Tipo de Evento</label>
+                        <select id="event" class="form-control" required>
+                            <option value="">Selecione...</option>
+                            <option value="aniversario">Aniversário Infantil</option>
+                            <option value="corporativo">Evento Corporativo</option>
+                            <option value="escola">Evento Escolar</option>
+                            <option value="casamento">Casamento</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" class="form-control" placeholder="Informe os brinquedos de interesse, data do evento e local..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="formSubmit"><i class="fas fa-paper-plane"></i> Enviar Solicitação</button>
+                </form>
+            </div>
+            
+            <div class="contact-bg-element"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fas fa-child logo-icon"></i>
+                        <h1>Sapeca</h1>
+                    </div>
+                    <p>Há mais de 10 anos transformando festas e eventos em momentos inesquecíveis com diversão e segurança.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/sapecafestaseeventos/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
+                        <li><a href="#services"><i class="fas fa-gamepad"></i> Brinquedos</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-comments"></i> Depoimentos</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Brinquedos Populares</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-castle"></i> Pula Pula</a></li>
+                        <li><a href="#"><i class="fas fa-bullhorn"></i> Touro Mecânico</a></li>
+                        <li><a href="#"><i class="fas fa-swimming-pool"></i> Piscina de Bolinhas</a></li>
+                        <li><a href="#"><i class="fas fa-sliders-h"></i> Escorregador Inflável</a></li>
+                        <li><a href="#"><i class="fas fa-bounce"></i> Cama Elástica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Inscreva-se para receber promoções e novidades</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Seu email" required>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Sapeca Festas e Eventos. Todos os direitos reservados.</p>
+            </div>
+            
+            <div class="footer-bg"></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inicializar loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.remove('active');
+            }, 1500);
+        });
+
+        // Inicializar particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#6A67CE" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#6A67CE",
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "grab" },
+                            onclick: { enable: true, mode: "push" },
+                            resize: true
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+        });
+
+        // Inicializar Swiper
+        const swiper = new Swiper('.testimonials-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('nav');
+        
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenu.querySelector('i').classList.toggle('fa-bars');
+            mobileMenu.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 25px var(--shadow)';
+            } else {
+                header.style.padding = '12px 0';
+                header.style.boxShadow = '0 5px 25px var(--shadow)';
+            }
+        });
+
+        // Dark/Light mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        // WhatsApp functionality
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const whatsappActions = document.getElementById('whatsappActions');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const confirmWhatsApp = document.getElementById('confirmWhatsApp');
+        const cancelRedirect = document.getElementById('cancelRedirect');
+        
+        // Número de WhatsApp atualizado
+        const phoneNumber = '5511943104933';
+        
+        // Toggle WhatsApp actions
+        whatsappBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            whatsappBtn.classList.toggle('active');
+            whatsappActions.classList.toggle('active');
+        });
+
+        // WhatsApp action buttons
+        document.querySelectorAll('.whatsapp-action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const message = encodeURIComponent(btn.getAttribute('data-message'));
+                redirectToWhatsApp(message);
+            });
+        });
+
+        // WhatsApp card buttons
+        document.querySelectorAll('.whatsapp-card-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const service = btn.getAttribute('data-service');
+                const message = encodeURIComponent(`Olá, gostaria de solicitar um orçamento para o ${service}`);
+                showConfirmationModal(message);
+            });
+        });
+
+        // Form submission to WhatsApp
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const eventType = document.getElementById('event').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = encodeURIComponent(`Olá, meu nome é ${name}. Gostaria de solicitar um orçamento para um evento do tipo ${eventType}. ${message}. Meu telefone é ${phone} e email ${email}.`);
+            
+            showConfirmationModal(whatsappMessage);
+        });
+
+        // Hero CTA button
+        document.getElementById('heroCta').addEventListener('click', (e) => {
+            e.preventDefault();
+            const message = encodeURIComponent('Olá, gostaria de reservar brinquedos para minha festa/evento!');
+            showConfirmationModal(message);
+        });
+
+        // Show confirmation modal
+        function showConfirmationModal(message) {
+            confirmationModal.classList.add('active');
+            
+            confirmWhatsApp.addEventListener('click', (e) => {
+                e.preventDefault();
+                redirectToWhatsApp(message);
+            });
+            
+            cancelRedirect.addEventListener('click', (e) => {
+                e.preventDefault();
+                confirmationModal.classList.remove('active');
+            });
+        }
+
+        // Redirect to WhatsApp
+        function redirectToWhatsApp(message) {
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            confirmationModal.classList.remove('active');
+            whatsappActions.classList.remove('active');
+            whatsappBtn.classList.remove('active');
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === confirmationModal) {
+                confirmationModal.classList.remove('active');
+            }
+        });
+
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Inscrição realizada com sucesso! Você receberá nossas novidades em breve.');
+            e.target.reset();
+        });
+
+        // Floating elements animation
+        const floatingElements = document.querySelectorAll('.floating-brinquedo');
+        floatingElements.forEach(el => {
+            const duration = 6 + Math.random() * 2;
+            el.style.animationDuration = `${duration}s`;
+        });
+
+        // Logo click to scroll to top
+        document.getElementById('logo').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
